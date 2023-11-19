@@ -4,23 +4,21 @@ class Solution
 {
     public int findFinalValue(int[] nums, int original)
     {
+        Set<Integer> hashset = new HashSet<>();
         int value = original;
-        Hashtable<Integer, Integer> hashtable = new Hashtable<>();
 
-        // Fill hashtable with element from input array
-        for (int i = 0; i < nums.length; i++)
+        // Fill hashset with element from input array
+        for (int num: nums)
         {
-            hashtable.put(nums[i], nums[i]);
+            hashset.add(num);
         }
 
-        // Process of multiplying value by 2 and search it in hashtable
-        while (true)
+        // Process of multiplying value by 2 and search it in hashset
+        while (hashset.contains(value))
         {
-            if (hashtable.get(value) == null)
-            {
-                return value;
-            }
             value = 2 * value;
         }
+
+        return value;
     }
 }
