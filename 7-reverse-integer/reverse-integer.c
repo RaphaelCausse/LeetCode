@@ -11,6 +11,7 @@ int reverse(int x){
         {
             return 0;
         }
+        
         reversed = (reversed * 10) + (x % 10);
         x /= 10;
     }
